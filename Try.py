@@ -1,8 +1,4 @@
 class Section:
-    secA = ''
-    secB = ''
-    secC = ''
-
     def __init__(self, secA_, secB_, secC_):
         self.secA = secA_
         self.secB = secB_
@@ -18,8 +14,6 @@ class Section:
         return self.secC
 
 class Path:
-    path = ''
-
     def __init__(self):
         self.path = list()
 
@@ -40,20 +34,15 @@ def optimalPath(pathPair, section):
     pathB = pathPair[1]
     
     totalA = 0
+    totalB = 0
     for v in pathA.getPath():
         totalA += v[1] 
-
-    totalB = 0
     for v in pathB.getPath():
         totalB += v[1]
 
-    toAFromA = 0
     toAFromA = totalA + section.secAVal()
-    toAFromB = 0
     toAFromB = totalB + section.secBVal() + section.secCVal()
-    toBFromA = 0
     toBFromA = totalA + section.secAVal() + section.secCVal()
-    toBFromB = 0
     toBFromB = totalB + section.secBVal()
     
     newPathToA = list()
